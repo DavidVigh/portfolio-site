@@ -208,11 +208,16 @@ No changes to the Next.js app are required.
 
 ## GitHub sync cron
 
-A daily Vercel Cron job hits `POST /api/cron/github-sync` and calls `runGitHubSync()` in [src/lib/github-sync.ts](./src/lib/github-sync.ts), which:
+A daily Vercel Cron job hits `POST /api/cron/github-sync` and calls `runGitHubSync()` in [src/lib/github-sync.ts](./src/lib/github-sync.ts), which reconciles `github_repos` against the GitHub API in three passes:
 
 1. Fetches the configured user's public, non-fork, non-archived repos.
-2. Upserts every repo into `github_repos` keyed by the GitHub `repo_id`.
-3. Logs a row in `github_sync_runs` with counts and any error.
+2. Upserts every repo into `github_repos` keyed by the GitHub `repo_id` (inserts new, updates existing).
+3. **Prunes** rows whose `repo_id` is no longer in the GitHub response — catches repos that were deleted, set to private, archived, transferred to another owner, or converted to forks since the last run.
+4. Logs a row in `github_sync_runs` with `inserted_count`, `updated_count`, `deleted_count`, and any error.
+
+If the GitHub API returns an empty list (transient outage), the prune step is skipped to avoid wiping the table.
+
+> If you've already run `0001_init.sql` in production, also run [supabase/migrations/0002_add_deleted_count.sql](./supabase/migrations/0002_add_deleted_count.sql) to add the new `deleted_count` column to `github_sync_runs`.
 
 Schedule lives in [vercel.json](./vercel.json) (default `0 2 * * *`, i.e. 02:00 UTC daily). Authenticated via `CRON_SECRET`. To trigger manually:
 

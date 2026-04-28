@@ -70,6 +70,7 @@ export type GitHubSyncRunRow = {
   repos_seen: number;
   inserted_count: number;
   updated_count: number;
+  deleted_count: number;
   error: string | null;
 };
 
@@ -80,5 +81,6 @@ export type GitHubSyncRunInsert = {
   repos_seen: number;
   inserted_count: number;
   updated_count: number;
+  deleted_count?: number;
   error?: string | null;
 };
