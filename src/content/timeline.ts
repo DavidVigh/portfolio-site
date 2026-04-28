@@ -16,7 +16,7 @@ export const timelineEntries: TimelineEntry[] = [
     startDate: "2020-09-01",
     description:
       "Five-year technical secondary program with a specialization in software development and testing. Graduated as a certified Software Developer & Tester.",
-    highlights: ["HTML & CSS", "JavaScript", "SQL", "Software testing"],
+    highlights: ["HTML & CSS", "JavaScript", "SQL", "Unit testing", "Bootstrap", "Tailwind", "Vue", "Laravel", "Python", "C#"],
     location: "Budapest, Hungary",
   },
   {
@@ -37,9 +37,9 @@ export const timelineEntries: TimelineEntry[] = [
     period: "Jan 2025 — Present",
     startDate: "2025-01-01",
     description:
-      "Specializing in Next.js, TypeScript, and API automation. Operating from CET to deliver overnight deployments and zero-downtime maintenance for US teams.",
+      "Specializing in Next.js, TypeScript, and API automation, operating from CET.",
     highlights: ["Next.js", "TypeScript", "Node.js", "API automation", "PostgreSQL"],
-    location: "Budapest, Hungary (Remote)",
+    location: "Remote",
   },
   {
     id: "achievement-song-tailor",

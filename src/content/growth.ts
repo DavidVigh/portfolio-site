@@ -32,7 +32,7 @@ export const growthContent: GrowthContent = {
     label: "Where I am now",
     period: "2026 — Present",
     headline:
-      "Full-stack engineer at thyssenkrupp + independent developer. Shipping production code with modern stacks, automation, and AI integrations.",
+      "E2E testing engineer at thyssenkrupp + independent Full-stack developer. Shipping production code with modern stacks, automation, and AI integrations.",
     skills: [
       "TypeScript",
       "React",
@@ -47,11 +47,11 @@ export const growthContent: GrowthContent = {
       "Vite",
       "Cypress",
       "Gemini AI",
-      "Discord Webhooks",
+      "Webhooks",
     ],
     highlights: [
       "Building E2E test infrastructure with Cypress for a global automotive supplier",
-      "Architected and shipped 'Song Tailor' — a full-stack platform with AI-driven parsing",
+      "Architected and shipped 'Song Tailor' — a full-stack platform with AI QOL features",
       "Independent client work specializing in Next.js, TypeScript, and API automation",
       "Operating from CET to ship overnight deploys for US teams without disrupting users",
     ],

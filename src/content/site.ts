@@ -22,7 +22,7 @@ export const siteContent: SiteContent = {
     },
     {
       label: "LinkedIn",
-      href: "https://www.linkedin.com/",
+      href: "https://www.linkedin.com/in/david-hunor-vigh",
       icon: "linkedin",
     },
     {
