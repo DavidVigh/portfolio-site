@@ -1,26 +1,199 @@
 @import "tailwindcss";
 
+@theme {
+  /* Fiery Ocean Palette: Molten Lava */
+  --color-molten-lava-50: #ffe5e5;
+  --color-molten-lava-100: #ffcccc;
+  --color-molten-lava-200: #ff9999;
+  --color-molten-lava-300: #ff6666;
+  --color-molten-lava-400: #ff3333;
+  --color-molten-lava-500: #ff0000;
+  --color-molten-lava-600: #cc0000;
+  --color-molten-lava-700: #990000;
+  --color-molten-lava-800: #660000;
+  --color-molten-lava-900: #330000;
+  --color-molten-lava-950: #240000;
+
+  /* Brick Red */
+  --color-brick-red-50: #fde8e9;
+  --color-brick-red-100: #fbd0d3;
+  --color-brick-red-200: #f6a2a7;
+  --color-brick-red-300: #f2737b;
+  --color-brick-red-400: #ee4450;
+  --color-brick-red-500: #e91624;
+  --color-brick-red-600: #bb111d;
+  --color-brick-red-700: #8c0d15;
+  --color-brick-red-800: #5d090e;
+  --color-brick-red-900: #2f0407;
+  --color-brick-red-950: #210305;
+
+  /* Papaya Whip */
+  --color-papaya-whip-50: #fef6e7;
+  --color-papaya-whip-100: #fdedce;
+  --color-papaya-whip-200: #fadb9e;
+  --color-papaya-whip-300: #f8ca6d;
+  --color-papaya-whip-400: #f6b83c;
+  --color-papaya-whip-500: #f4a60b;
+  --color-papaya-whip-600: #c38509;
+  --color-papaya-whip-700: #926407;
+  --color-papaya-whip-800: #614205;
+  --color-papaya-whip-900: #312102;
+  --color-papaya-whip-950: #221702;
+
+  /* Deep Space Blue */
+  --color-deep-space-blue-50: #e5f6ff;
+  --color-deep-space-blue-100: #ccedff;
+  --color-deep-space-blue-200: #99dbff;
+  --color-deep-space-blue-300: #66c9ff;
+  --color-deep-space-blue-400: #33b8ff;
+  --color-deep-space-blue-500: #00a6ff;
+  --color-deep-space-blue-600: #0085cc;
+  --color-deep-space-blue-700: #006399;
+  --color-deep-space-blue-800: #004266;
+  --color-deep-space-blue-900: #002133;
+  --color-deep-space-blue-950: #001724;
+
+  /* Steel Blue */
+  --color-steel-blue-50: #edf3f7;
+  --color-steel-blue-100: #dce8ef;
+  --color-steel-blue-200: #b8d1e0;
+  --color-steel-blue-300: #95b9d0;
+  --color-steel-blue-400: #71a2c1;
+  --color-steel-blue-500: #4e8bb1;
+  --color-steel-blue-600: #3e6f8e;
+  --color-steel-blue-700: #2f536a;
+  --color-steel-blue-800: #1f3847;
+  --color-steel-blue-900: #101c23;
+  --color-steel-blue-950: #0b1319;
+
+  /* Semantic tokens (CMS-friendly future overrides) */
+  --color-bg-base: var(--color-deep-space-blue-950);
+  --color-bg-surface: var(--color-deep-space-blue-900);
+  --color-bg-elevated: var(--color-steel-blue-900);
+  --color-border-subtle: var(--color-steel-blue-800);
+  --color-text-primary: var(--color-papaya-whip-50);
+  --color-text-muted: var(--color-steel-blue-300);
+  --color-accent: var(--color-brick-red-500);
+  --color-accent-strong: var(--color-molten-lava-500);
+  --color-accent-warm: var(--color-papaya-whip-400);
+
+  --font-sans: var(--font-geist-sans), Inter, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: dark;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html,
+body {
+  background: var(--color-bg-base);
+  color: var(--color-text-primary);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  background-image:
+    radial-gradient(
+      ellipse 60% 50% at 20% 0%,
+      rgba(187, 17, 29, 0.18),
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 60% 50% at 100% 20%,
+      rgba(0, 133, 204, 0.15),
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 80% 60% at 50% 100%,
+      rgba(244, 166, 11, 0.08),
+      transparent 70%
+    );
+  background-attachment: fixed;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background: var(--color-brick-red-500);
+  color: var(--color-papaya-whip-50);
+}
+
+/* Subtle custom scrollbar that aligns with the palette */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-steel-blue-700) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--color-steel-blue-700);
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-brick-red-500);
+}
+
+/* Reusable utility classes for repeated decorative patterns */
+@utility section-shell {
+  @apply mx-auto w-full max-w-6xl px-6 sm:px-10;
+}
+
+@utility card-surface {
+  @apply rounded-2xl border border-steel-blue-800/70 bg-deep-space-blue-900/60 backdrop-blur-sm;
+}
+
+@utility chip {
+  @apply inline-flex items-center gap-1.5 rounded-full border border-steel-blue-700/70 bg-steel-blue-900/60 px-3 py-1 text-xs font-medium text-steel-blue-200;
+}
+
+@keyframes pulseGlow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(233, 22, 36, 0.55);
+  }
+  50% {
+    box-shadow: 0 0 0 14px rgba(233, 22, 36, 0);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2.4s ease-out infinite;
+}
+
+@keyframes floatY {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-float {
+  animation: floatY 6s ease-in-out infinite;
+}
+
+/* Hide horizontal scrollbar visually for the timeline while keeping accessibility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
