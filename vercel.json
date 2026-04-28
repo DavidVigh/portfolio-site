@@ -3,7 +3,7 @@
   "crons": [
     {
       "path": "/api/cron/github-sync",
-      "schedule": "* * * * *"
+      "schedule": "25 13 * * *"
     }
   ]
 }
