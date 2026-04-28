@@ -1,0 +1,9 @@
+# Supabase project configuration for the local CLI.
+# Run `supabase init` first if you don't have it, then `supabase functions serve`.
+
+project_id = "portfolio-site"
+
+[functions.notify-order]
+# Database Webhook posts unsigned JSON to this function. Auth is enforced
+# inside the function via WEBHOOK_SECRET, so we disable the platform's JWT check.
+verify_jwt = false
